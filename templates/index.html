@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lucas Gaming Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            text-align: center;
+
+            /* Background image */
+            background-image: url("https://wallpapers.com/images/hd/abstract-gaming-c6eqj3d8fung8wap.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            /* Animation */
+            animation: moveBackground 10s ease-in-out infinite;
+        }
+
+        @keyframes moveBackground {
+            0%   { background-position: center; }
+            50%  { background-position: top; }
+            100% { background-position: center; }
+        }
+        a img {
+          position: relative;
+          left: -170px;
+          padding-right: 20px;
+        }
+        h1 {
+            font-family: 'Bungee', sans-serif;
+            font-size: 3em;
+            font-weight: bold;
+            color: #fff;
+            text-shadow:
+                2px 2px 0 #ff007f,
+               -2px -2px 0 #00f7ff;
+            position: relative;
+            left: -100px;
+            margin-top: 120px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gaming Web by Lucas</h1>
+    <a href="{{url_for('tic')}}">
+        <img src="https://cdn-icons-png.flaticon.com/512/10199/10199746.png" width="200">
+    </a>
+    <a href="{{url_for('connect_four')}}">
+        <img src="https://cdn-icons-png.flaticon.com/512/3367/3367465.png" width="200">
+    </a>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+  <title>{% block title %}Connect Four{% endblock %}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Bungee', sans-serif;
+            text-align: center;
+
+            /* Background image */
+            background-image: url("https://wallpapers.com/images/hd/abstract-gaming-c6eqj3d8fung8wap.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            /* Animation */
+            animation: moveBackground 10s ease-in-out infinite;
+        }
+    .status {
+    font-size: 1.8em;
+    margin-top: 20px;
+    text-shadow:
+      2px 2px 0 #00ffcc,
+     -2px -2px 0 #ff00ff;
+  }
+   a {
+    display: inline-block;
+    margin: 12px;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    font-family: 'Bungee', sans-serif;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(135deg, #ff007f, #00f7ff);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: all 0.2s;
+  }
+
+  a:hover {
+    transform: scale(1.08);
+    background: linear-gradient(135deg, #00f7ff, #ff007f);
+  }
+
+
+    /* ===== Connect Four layout ===== */
+    .connect4-board {
+      display: flex;                 /* 7 columns side by side */
+      gap: 4px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+
+    /* Clickable grey rectangle for each column */
+    .column {
+      display: inline-flex;
+      flex-direction: column;        /* stack 6 circles vertically */
+      justify-content: space-between;
+      align-items: center;
+      background: #transparent;           /* grey shaded column */
+      padding: 6px;
+      border-radius: 10px;
+      width: 90px;                   /* column width */
+      text-decoration: none;         /* remove link underline */
+      color: inherit;                /* keep text color */
+      box-shadow: 0 1px 2px rgba(0,0,0,.12);
+      cursor: pointer;               /* indicate clickability */
+    }
+    .column:hover { background: #dcdcdc; }
+
+    /* Circles (display-only) */
+    .cell {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 2px solid #333;
+      background: #ffffff;
+      margin: 4px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #000;
+      user-select: none;
+    }
+    .user-cell {
+  background: blue;
+}
+
+.comp-cell {
+  background: red;
+}
+    /* Make circles non-clickable; clicks go to the column link */
+    .connect4-board .cell { pointer-events: none; }
+
+    /* Optional shared bits */
+    .info { margin: 20px; font-size: 1.2em; }
+    .btn  { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #333; color: #fff; text-decoration: none; border-radius: 5px; }
+    .btn:hover { background: #555; }
+  </style>
+</head>
+<body>
+  {% block content %}{% endblock %}
+</body>
+</html>

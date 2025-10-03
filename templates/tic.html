@@ -1,0 +1,32 @@
+{% extends "tic-base.html" %}
+
+{% block content %}
+<h1>Tic-Tac-Toe</h1>
+  <div class="board">
+    {% for i in range(9) %}
+         {% if status != None or board[i] != "": %}
+           <button class="cell">{{ board[i]}}</button>
+         {% else: %}
+           <form method = "POST">
+              <button class="cell" name="pos" value="{{ i }}">{{ board[i]}}</button>
+           </form>
+         {% endif %}
+    {% endfor %}
+  </div>
+
+ <a href = "{{url_for('tic')}}">Restart</a>
+ <a href = "{{url_for('index')}}">Home</a>
+
+  <div class="status">
+    {% if status != None: %}
+       {% if status == 1: %}
+           You won!
+       {% elif status == 0: %}
+           You lost!
+       {% else: %}
+           Tie!
+       {% endif %}
+    {% endif %}
+  </div>
+
+{% endblock %}

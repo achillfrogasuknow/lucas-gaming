@@ -1,0 +1,47 @@
+{% extends "four-base.html" %}
+
+{% block content %}
+<h1>Connect-Four</h1>
+
+<div class="connect4-board">
+  {% for col in range(7) %}
+    {% if "" in board[col] and status == None: %}
+        <form method="POST" action="{{ url_for('connect_four') }}" class="column" onclick="this.submit()">
+            <input type = "hidden" name = "col" value = "{{col}}">
+          <!-- invisible submit button that makes the whole column clickable -->
+              {% for row in range(6) %}
+                <div class="cell
+                  {% if board[col][row] == 'X' %} user-cell
+                  {% elif board[col][row] == 'O' %} comp-cell
+                  {% endif %}">
+                </div>
+              {% endfor %}
+        </form>
+    {% else: %}
+       <div class="column">
+           {% for row in range(6) %}
+                <div class="cell
+                  {% if board[col][row] == 'X' %} user-cell
+                  {% elif board[col][row] == 'O' %} comp-cell
+                  {% endif %}">
+                </div>
+              {% endfor %}
+        </div>
+    {% endif %}
+  {% endfor %}
+
+</div>
+
+<a href = "{{url_for('connect_four')}}">Restart</a>
+<a href = "{{url_for('index')}}">Home</a>
+<div class="status">
+        {% if status == 1 %}
+                You won!
+        {% elif status == 0 %}
+                You lost!
+        {% elif status == 2 %}
+                Tie!
+        {% endif %}
+  </div>
+
+{% endblock %}
