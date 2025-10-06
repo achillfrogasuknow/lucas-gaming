@@ -30,7 +30,7 @@
         }
         a img {
           position: relative;
-          left: -170px;
+          left: -60px;
           padding-right: 20px;
         }
         h1 {
@@ -49,11 +49,16 @@
 </head>
 <body>
     <h1>Gaming Web by Lucas</h1>
+    <a href="{{ url_for('snake') }}">
+        <img src="https://cdn-icons-png.flaticon.com/512/3292/3292221.png" width="200">
+    </a>
+    <a href="{{ url_for('pong') }}">
+        <img src="https://icons.veryicon.com/png/o/game/game-entertainment-related-series/pong-1.png" width="200">
+    </a>
     <a href="{{url_for('tic')}}">
         <img src="https://cdn-icons-png.flaticon.com/512/10199/10199746.png" width="200">
     </a>
-    <a href="{{url_for('connect_four')}}">
-        <img src="https://cdn-icons-png.flaticon.com/512/3367/3367465.png" width="200">
-    </a>
+
+
 </body>
 </html>

@@ -1,0 +1,57 @@
+{% extends "tic-base.html" %}
+
+{% block content %}
+<h1>Snake Game</h1>
+
+<div id="game-info">
+  <p>Score: <span id="score">0</span></p>
+  <p id="status"></p>
+</div>
+
+<canvas id="snakeCanvas" width="400" height="400"></canvas>
+
+<div class="buttons">
+  <a href="#" id="speedBtn">Speed: Fast</a>
+  <a href="{{ url_for('snake') }}">Restart</a>
+  <a href="{{ url_for('index') }}">Home</a>
+</div>
+
+<script src="{{ url_for('static', filename='snake.js') }}"></script>
+
+<style>
+  #snakeCanvas {
+    background: rgba(0, 0, 0, 0.7);
+    border: 3px solid #00ffcc;
+    border-radius: 10px;
+    display: block;
+    margin: 20px auto;
+  }
+  #game-info {
+    font-family: 'Bungee', sans-serif;
+    font-size: 1.5em;
+    color: #fff;
+    text-shadow: 2px 2px #00ffcc;
+  }
+  .buttons {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .buttons a {
+    display: inline-block;
+    margin: 12px;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    font-family: 'Bungee', sans-serif;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(135deg, #ff007f, #00f7ff);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: all 0.2s;
+  }
+  .buttons a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+  }
+</style>
+{% endblock %}
